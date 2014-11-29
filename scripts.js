@@ -1,4 +1,5 @@
 window.TO_DEG = 180 / Math.PI;
+
 var gestureMeanings = [
     "Cześć!",
     "Jak się masz?",
@@ -47,14 +48,19 @@ $('#output_rad, #output_deg').click(function() {
     $('#output_rad, #output_deg').toggle();
 });
 
+function writeMessage(text) {
+    line = '> ' + text;
+    $('#communication').html(line);
+}
+
 function recogniseGesture(deg12, deg23) {
     if ((Math.floor(deg12) == 19) && (Math.floor(deg23) == 4)) {
-        $('#communication').html(gestureMeanings[0]);
+        writeMessage(gestureMeanings[0]);
     } else if (Math.floor(deg23) > 6) {
-        $('#communication').html(gestureMeanings[2]);
+        writeMessage(gestureMeanings[2]);
     } else if ((Math.floor(deg12) == -19)) {
-        $('#communication').html(gestureMeanings[1]);
+        writeMessage(gestureMeanings[1]);
     } else {
-        $('#communication').html('');
+        writeMessage('');
     }
 }

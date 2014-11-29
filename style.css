@@ -1,5 +1,7 @@
 canvas {
     z-index: -1;
+    position: relative !important;
+    margin-top: -150;
 }
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
@@ -24,5 +26,6 @@ body {
     width: 0%;
 }
 #communication {
-    /*display: none;*/
+    margin-top: 10px;
+    margin-left: 10px;
 }
