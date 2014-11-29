@@ -12,7 +12,7 @@
     /* assumes you have this in a container with a set width */
 
     height: 400px;
-    margin: 0 auto;
+    margin: 40 auto;
     position: relative;
     /* So we can position the banner within the box */
 

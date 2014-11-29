@@ -49,7 +49,7 @@ $('#output_rad, #output_deg').click(function() {
 });
 
 function writeMessage(text) {
-    line = '> ' + text;
+    line = '<p>> ' + text + '</p>';
     $('#communication').html(line);
 }
 
@@ -61,6 +61,6 @@ function recogniseGesture(deg12, deg23) {
     } else if ((Math.floor(deg12) == -19)) {
         writeMessage(gestureMeanings[1]);
     } else {
-        writeMessage('');
+        writeMessage('...');
     }
 }

@@ -1,7 +1,7 @@
 canvas {
     z-index: -1;
     position: relative !important;
-    margin-top: -150;
+    margin-top: -250;
 }
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
