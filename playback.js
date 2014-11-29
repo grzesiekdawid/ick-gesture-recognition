@@ -11,7 +11,7 @@ $(document).ready(function(){
       // This is a compressed JSON file of preprecorded frame data
       recording: 'finger-angle-signed-47fps.json.lz',
       // How long, in ms, between repeating the recording.
-      timeBetweenLoops: 1000,
+      timeBetweenLoops: 2000,
       pauseOnHand: true
     }).on('riggedHand.meshAdded', function(handMesh, leapHand){
       handMesh.material.opacity = 1;

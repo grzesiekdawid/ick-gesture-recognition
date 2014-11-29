@@ -1,6 +1,10 @@
+canvas{
+  z-index: -1;
+}
 body{
   font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 }
+
 #output_rad, #output_deg{
   font-size: 66px;
   color: #005d98;
@@ -9,6 +13,7 @@ body{
   bottom: 18px;
   cursor: pointer;
 }
+
 #output_rad{
   display: none;
 }
@@ -21,6 +26,7 @@ body{
   height: 16px;
   width: 0%;
 }
-canvas{
-  z-index: -1;
+
+#communication {
+  /*display: none;*/
 }

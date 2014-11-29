@@ -5,7 +5,6 @@ window.TO_DEG = 180 / Math.PI;
 Leap.loop({background: true}, {
 
   hand: function(hand){
-
     var d1 = hand.indexFinger.proximal.direction(),
         d2 = hand.middleFinger.proximal.direction();
 
@@ -29,10 +28,10 @@ Leap.loop({background: true}, {
     output_rad.innerHTML = rad + ' rad';
     output_deg.innerHTML = deg + '°';
 
-    recogniseGesture( deg );
-
     progress.style.width = angle * 100 + '%';
-}
+    recogniseGesture(deg);
+  }
+
 });
 
 // handle rad/deg UI
@@ -44,13 +43,12 @@ $('#output_rad, #output_deg').click(function(){
 function recogniseGesture(deg) {
   switch(deg) {
     case '19':
-      console.log('recogniseGesture');
-      console.log('+19');
+      $('#communication').html('+19');
       break;
     case '-19':
-      console.log('recogniseGesture');
-      console.log('-19');
+      $('#communication').html('-19');
       break;
     default:
+      $('#communication').html('');
   }
 }
