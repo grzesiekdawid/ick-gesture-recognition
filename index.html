@@ -17,30 +17,26 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 //-->
-
 <html>
-  <head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
+        <title>Signed Finger Angle</title>
 
-    <title>Signed Finger Angle</title>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.js"></script>
+        <script src="//js.leapmotion.com/leap-0.6.2.js"></script>
+        <script src="//js.leapmotion.com/leap-plugins-0.1.6.1.js"></script>
+        <script src="//js.leapmotion.com/leap.rigged-hand-0.1.4.min.js"></script>
+        <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="scripts.js"></script>
+        <script src="playback.js"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.js"></script>
-    <script src="//js.leapmotion.com/leap-0.6.2.js"></script>
-    <script src="//js.leapmotion.com/leap-plugins-0.1.6.1.js"></script>
-    <script src="//js.leapmotion.com/leap.rigged-hand-0.1.4.min.js"></script>
-    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="scripts.js"></script>
-    <script src="playback.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id='communication'></div>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-  </head>
-
-  <body>
-    <div id='communication'></div>
-
-    <div id='output_rad'></div>
-    <div id='output_deg'></div>
-    <div id='progress'></div>
-  </body>
+        <div id='output_rad'></div>
+        <div id='output_deg'></div>
+        <div id='progress'></div>
+    </body>
 </html>
