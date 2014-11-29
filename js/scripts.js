@@ -57,9 +57,9 @@ function recogniseGesture(deg12, deg23) {
     if ((Math.floor(deg12) == 19) && (Math.floor(deg23) == 4)) {
         writeMessage(gestureMeanings[0]);
     } else if (Math.floor(deg23) > 6) {
-        writeMessage(gestureMeanings[2]);
-    } else if ((Math.floor(deg12) == -19)) {
         writeMessage(gestureMeanings[1]);
+    } else if ((Math.floor(deg12) == -19)) {
+        writeMessage(gestureMeanings[2]);
     } else {
         writeMessage('...');
     }
