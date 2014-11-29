@@ -23,9 +23,6 @@ Leap.loop({
         var d1 = hand.indexFinger.proximal.direction(),
             d2 = hand.middleFinger.proximal.direction(),
             d3 = hand.ringFinger.proximal.direction();
-        var output_rad = document.getElementById('output_rad'),
-            output_deg = document.getElementById('output_deg'),
-            progress = document.getElementById('progress');
 
         var angle12 = Math.acos(Leap.vec3.dot(d1, d2));
         var angle23 = Math.acos(Leap.vec3.dot(d2, d3));
@@ -40,9 +37,9 @@ Leap.loop({
 
         recogniseGesture(deg12, deg23);
 
-        output_rad.innerHTML = rad12 + ' rad';
-        output_deg.innerHTML = deg12 + '°';
-        progress.style.width = angle12 * 100 + '%';
+        $('#output_rad').html(rad12 + ' rad');
+        $('#output_deg').html(deg12 + '°');
+        $('#progress').width(angle12 * 100 + '%');
     }
 });
 // handle rad/deg UI
