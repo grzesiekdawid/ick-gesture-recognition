@@ -1,56 +1,58 @@
 
-  /********************************************************
-  * This is the actual example part where we call pinchStrength
-  *****************************************************/
+/********************************************************
+* This is the actual example part where we call pinchStrength
+*****************************************************/
 
-  window.TO_DEG = 180 / Math.PI;
+window.TO_DEG = 180 / Math.PI;
 
-  // Set up the controller:
-  Leap.loop({background: true}, {
+// Set up the controller:
+Leap.loop({background: true}, {
 
-    hand: function(hand){
+  hand: function(hand){
 
-      var d1 = hand.indexFinger.proximal.direction(),
-          d2 = hand.middleFinger.proximal.direction();
+    var d1 = hand.indexFinger.proximal.direction(),
+        d2 = hand.middleFinger.proximal.direction();
 
-      var angle = Math.acos(Leap.vec3.dot(d1, d2));
+    var angle = Math.acos(Leap.vec3.dot(d1, d2));
 
-      var cross = Leap.vec3.create();
-      Leap.vec3.cross(cross, d1, d2);
+    var cross = Leap.vec3.create();
+    Leap.vec3.cross(cross, d1, d2);
 
-      var dir = Leap.vec3.dot(hand.palmNormal, cross);
+    var dir = Leap.vec3.dot(hand.palmNormal, cross);
 
-      if (dir < 0) {
-        angle *= -1;
-      }
+    if (dir < 0) {
+      angle *= -1;
+    }
 
-      var output_rad = document.getElementById('output_rad'),
-        output_deg = document.getElementById('output_deg'),
-        progress = document.getElementById('progress');
+    var output_rad = document.getElementById('output_rad'),
+      output_deg = document.getElementById('output_deg'),
+      progress = document.getElementById('progress');
 
-      output_rad.innerHTML = (angle ).toPrecision(2) + ' rad';
-      output_deg.innerHTML = (angle * TO_DEG).toPrecision(2) + '°';
+    output_rad.innerHTML = (angle ).toPrecision(2) + ' rad';
+    output_deg.innerHTML = (angle * TO_DEG).toPrecision(2) + '°';
 
-      progress.style.width = angle * 100 + '%';
-  }
-  });
-
-
-  /*********************************************************
-  * End of the actual example
-  ****************************************************/
+    progress.style.width = angle * 100 + '%';
+}
+});
 
 
-  /*********************************************************
-  * The rest of the code is here for visualizing the example. Feel
-  * free to remove it to experiment with the API value only
-  ****************************************************/
+/*********************************************************
+* End of the actual example
+****************************************************/
 
-  // handle rad/deg UI
 
-  $('#output_rad, #output_deg').click(function(){
-    $('#output_rad, #output_deg').toggle();
-  });
+/*********************************************************
+* The rest of the code is here for visualizing the example. Feel
+* free to remove it to experiment with the API value only
+****************************************************/
+
+// handle rad/deg UI
+
+$('#output_rad, #output_deg').click(function(){
+  $('#output_rad, #output_deg').toggle();
+});
+
+$(document).ready(function(){
 
   // Adds the rigged hand and playback plugins
   // to a given controller, providing a cool demo.
@@ -77,7 +79,7 @@
     overlay.style.bottom = '13px';
     overlay.style.width = '180px';
 
-  
+
     controller.use('riggedHand', {
     scale: 1.3,
     boneColors: function (boneMesh, leapHand){
@@ -100,3 +102,6 @@
     camera.lookAt(new THREE.Vector3(0,0,0));
   };
   visualizeHand(Leap.loopController);
+
+
+});
