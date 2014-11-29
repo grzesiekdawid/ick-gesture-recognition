@@ -24,8 +24,12 @@ Leap.loop({background: true}, {
       output_deg = document.getElementById('output_deg'),
       progress = document.getElementById('progress');
 
-    output_rad.innerHTML = (angle ).toPrecision(2) + ' rad';
-    output_deg.innerHTML = (angle * TO_DEG).toPrecision(2) + '°';
+    var rad = angle.toPrecision(2);
+    var deg = (angle * TO_DEG).toPrecision(2);
+    output_rad.innerHTML = rad + ' rad';
+    output_deg.innerHTML = deg + '°';
+
+    recogniseGesture( deg );
 
     progress.style.width = angle * 100 + '%';
 }
@@ -36,3 +40,17 @@ Leap.loop({background: true}, {
 $('#output_rad, #output_deg').click(function(){
   $('#output_rad, #output_deg').toggle();
 });
+
+function recogniseGesture(deg) {
+  switch(deg) {
+    case '19':
+      console.log('recogniseGesture');
+      console.log('+19');
+      break;
+    case '-19':
+      console.log('recogniseGesture');
+      console.log('-19');
+      break;
+    default:
+  }
+}
