@@ -4,6 +4,7 @@ var gestureMeanings = [
     "Cześć!",
     "Jak się masz?",
     "Wszystko w porządku.",
+    "Grozisz mi?",
 ];
 
 function isSignOfAngleNegative(hand, d1, d2) {
@@ -35,8 +36,9 @@ Leap.loop({
         var rad12 = angle12.toPrecision(2);
         var deg12 = (angle12 * TO_DEG).toPrecision(2);
         var deg23 = (angle23 * TO_DEG).toPrecision(2);
+        var grabStrength = hand.grabStrength.toPrecision(2);
 
-        recogniseGesture(deg12, deg23);
+        recogniseGesture(deg12, deg23, grabStrength);
 
         $('#output_rad').html(rad12 + ' rad');
         $('#output_deg').html(deg12 + '°');
@@ -53,13 +55,15 @@ function writeMessage(text) {
     $('#communication').html(line);
 }
 
-function recogniseGesture(deg12, deg23) {
-    if ((Math.floor(deg12) == 19) && (Math.floor(deg23) == 4)) {
+function recogniseGesture(deg12, deg23, grabStrength) {
+    if ((Math.floor(deg12) > 19) && (Math.floor(deg23) < 10)) { // czesc
         writeMessage(gestureMeanings[0]);
-    } else if (Math.floor(deg23) > 6) {
+    } else if ( (Math.floor(deg12) > 19) && (Math.floor(deg23) > 10)) { // Jak się masz?
         writeMessage(gestureMeanings[1]);
-    } else if ((Math.floor(deg12) == -19)) {
+    } else if ((Math.floor(deg12) < -5)) { // wsztstko
         writeMessage(gestureMeanings[2]);
+    } else if (grabStrength > 0.5) { // groza
+        writeMessage(gestureMeanings[3]);
     } else {
         writeMessage('...');
     }
